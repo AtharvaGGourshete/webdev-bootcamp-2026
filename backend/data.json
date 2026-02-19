@@ -1,202 +1,222 @@
 [
-    {
-      "id": "DESC-001",
-      "name": "Mid-Century Velvet Armchair",
-      "category": "Furniture",
-      "description": "Upholstered in a deep forest green performance velvet, this chair features tapered solid walnut legs and a hand-tufted backrest. It offers a firm yet supportive seat designed for long reading sessions.",
-      "quantity": 12,
-      "price": 849.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/furniture/velvet-armchair-green.jpg"
-    },
-    {
-      "id": "DESC-002",
-      "name": "Artisanal Speckled Stoneware Mug",
-      "category": "Kitchenware",
-      "description": "Hand-thrown in Vermont. The exterior is left partially unglazed to reveal the raw, sandy texture of the clay, while the interior features a smooth, milky-white reactive glaze.",
-      "quantity": 45,
-      "price": 32.50,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/kitchen/stoneware-mug-speckled.jpg"
-    },
-    {
-      "id": "DESC-003",
-      "name": "Copper-Cased Mechanical Keyboard",
-      "category": "Electronics",
-      "description": "A heavyweight typing tool housed in a CNC-machined copper chassis that develops a unique patina over time. Features Gateron Brown switches for a crisp, rhythmic 'thock' sound.",
-      "quantity": 5,
-      "price": 310.00,
-      "status": "Low Stock",
-      "img": "https://api.example.com/v1/images/tech/mechanical-keyboard-copper.jpg"
-    },
-    {
-      "id": "DESC-004",
-      "name": "Sandalwood & Bourbon Candle",
-      "category": "Home Fragrance",
-      "description": "Evoking a sun-drenched library, this candle opens with notes of aged leather and dry cedar, settling into a warm, smoky bourbon finish. Poured into a reusable amber glass jar.",
-      "quantity": 120,
-      "price": 24.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/home/candle-bourbon-sandalwood.jpg"
-    },
-    {
-      "id": "DESC-005",
-      "name": "Full-Grain Leather Weekend Bag",
-      "category": "Travel",
-      "description": "Crafted from vegetable-tanned Italian leather, this bag is built to survive decades. The brass hardware is antique-finished, and the interior is lined with rugged cotton duck canvas.",
-      "quantity": 8,
-      "price": 425.00,
-      "status": "Low Stock",
-      "img": "https://api.example.com/v1/images/travel/leather-duffle-tan.jpg"
-    },
-    {
-      "id": "DESC-006",
-      "name": "Obsidian Japanese Chef's Knife",
-      "category": "Kitchenware",
-      "description": "Forged using the San Mai technique with a VG-10 steel core. The handle is scorched charred oak (Shou Sugi Ban) for a waterproof, textured grip and striking dark aesthetic.",
-      "quantity": 15,
-      "price": 185.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/kitchen/gyuto-knife-obsidian.jpg"
-    },
-    {
-      "id": "DESC-007",
-      "name": "Organic Merino Wool Throw",
-      "category": "Bedding",
-      "description": "An oversized throw woven in a classic herringbone pattern. Ethically sourced merino wool provides breathable warmth without the itchiness of traditional wool fibers.",
-      "quantity": 30,
-      "price": 115.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/home/merino-throw-herringbone.jpg"
-    },
-    {
-      "id": "DESC-008",
-      "name": "Minimalist Brushed Brass Lamp",
-      "category": "Lighting",
-      "description": "A single continuous arc of brushed brass ending in a frosted glass globe. Emits a warm, diffused light perfect for late-night sketching or focused study.",
-      "quantity": 22,
-      "price": 145.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/lighting/brass-arc-lamp.jpg"
-    },
-    {
-      "id": "DESC-009",
-      "name": "Raw Indigo Selvedge Denim",
-      "category": "Apparel",
-      "description": "Stiff and unwashed, these 14oz jeans are woven on vintage shuttle looms. They feature a classic red-line selvedge ID and will fade uniquely based on the owner's movements.",
-      "quantity": 50,
-      "price": 195.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/apparel/selvedge-denim-raw.jpg"
-    },
-    {
-      "id": "DESC-010",
-      "name": "Aluminum Noise-Cancelling Headphones",
-      "category": "Electronics",
-      "description": "Wrapped in supple lambskin leather with earcups carved from solid aluminum. 40mm beryllium drivers deliver an airy, expansive soundstage and reference-neutral profile.",
-      "quantity": 10,
-      "price": 549.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/tech/hifi-headphones-aluminum.jpg"
-    },
-    {
-      "id": "DESC-011",
-      "name": "Aged Western Red Cedar Planter",
-      "category": "Outdoor",
-      "description": "Constructed from rot-resistant cedar with dovetail joints. Left untreated to allow it to weather to a beautiful silvery-grey over time in the garden.",
-      "quantity": 18,
-      "price": 85.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/garden/cedar-planter-box.jpg"
-    },
-    {
-      "id": "DESC-012",
-      "name": "Matte White Gooseneck Kettle",
-      "category": "Appliances",
-      "description": "A sleek, minimalist electric kettle designed for pour-over precision. The matte ceramic finish stays cool, while the base features a hidden OLED temperature screen.",
-      "quantity": 25,
-      "price": 159.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/kitchen/electric-kettle-white.jpg"
-    },
-    {
-      "id": "DESC-013",
-      "name": "Linen-Bound Artist Sketchbook",
-      "category": "Stationery",
-      "description": "Heavy 160gsm cream paper wrapped in coarse, oatmeal-colored linen. Designed for watercolor and ink with a lay-flat binding for seamless landscape drawing.",
-      "quantity": 60,
-      "price": 28.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/stationery/linen-sketchbook.jpg"
-    },
-    {
-      "id": "DESC-014",
-      "name": "Solid Raw Brass Fountain Pen",
-      "category": "Stationery",
-      "description": "A heavy, balanced writing instrument that develops a dark, unique patina. A statement piece that feels like a vintage artifact in the hand.",
-      "quantity": 14,
-      "price": 95.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/stationery/brass-fountain-pen.jpg"
-    },
-    {
-      "id": "DESC-015",
-      "name": "Ocean Plastic Pro Yoga Mat",
-      "category": "Fitness",
-      "description": "Manufactured from plastic reclaimed from coastlines. Features a laser-etched alignment map on a high-grip surface to help practitioners maintain proper form.",
-      "quantity": 40,
-      "price": 88.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/fitness/yoga-mat-recycled.jpg"
-    },
-    {
-      "id": "DESC-016",
-      "name": "Smoked Glass Decanter Set",
-      "category": "Barware",
-      "description": "A geometric decanter with four heavy-bottomed tumblers. The charcoal tint of the glass enhances the rich amber colors of aged spirits like scotch or rye.",
-      "quantity": 20,
-      "price": 120.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/home/decantur-set-smoked.jpg"
-    },
-    {
-      "id": "DESC-017",
-      "name": "Cold-Pressed Honey & Beeswax Soap",
-      "category": "Personal Care",
-      "description": "Smelling of summer meadows, these bars use raw honey as a humectant. Hand-cut and cured for six weeks to ensure a long-lasting, moisturizing lather.",
-      "quantity": 200,
-      "price": 9.50,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/care/honey-soap-bar.jpg"
-    },
-    {
-      "id": "DESC-018",
-      "name": "Copper-Plated Ash Wood Trowel",
-      "category": "Outdoor",
-      "description": "Naturally antimicrobial copper plating glides through soil effortlessly. The handle is turned from FSC-certified ash wood, designed to be a garden heirloom.",
-      "quantity": 35,
-      "price": 42.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/garden/copper-trowel-ash.jpg"
-    },
-    {
-      "id": "DESC-019",
-      "name": "Mist-Grey Bamboo Sheets",
-      "category": "Bedding",
-      "description": "Silkier than cotton and naturally thermal-regulating. These bamboo-derived sheets have a natural luster and a cool-to-the-touch feel ideal for hot sleepers.",
-      "quantity": 25,
-      "price": 165.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/home/bamboo-sheets-grey.jpg"
-    },
-    {
-      "id": "DESC-020",
-      "name": "Cherry Wood Bluetooth Radio",
-      "category": "Electronics",
-      "description": "1950s aesthetic meets modern connectivity. Wrapped in real cherry wood veneer with analog-style tuning knobs and a warm, mid-forward sound profile.",
-      "quantity": 11,
-      "price": 129.00,
-      "status": "In Stock",
-      "img": "https://api.example.com/v1/images/tech/retro-radio-cherry.jpg"
-    }
-  ]
+  {
+    "id": "DESC-001",
+    "name": "Mid-Century Velvet Armchair",
+    "category": "Furniture",
+    "description": "Upholstered in a deep forest green performance velvet, this chair features tapered solid walnut legs and a hand-tufted backrest. It offers a firm yet supportive seat designed for long reading sessions.",
+    "quantity": 12,
+    "price": 849.00,
+    "status": "In Stock",
+    "restock": 5,
+    "img": "https://api.example.com/v1/images/furniture/velvet-armchair-green.jpg"
+  },
+  {
+    "id": "DESC-002",
+    "name": "Artisanal Speckled Stoneware Mug",
+    "category": "Kitchenware",
+    "description": "Hand-thrown in Vermont. The exterior is left partially unglazed to reveal the raw, sandy texture of the clay, while the interior features a smooth, milky-white reactive glaze.",
+    "quantity": 45,
+    "price": 32.50,
+    "status": "In Stock",
+    "restock": 15,
+    "img": "https://api.example.com/v1/images/kitchen/stoneware-mug-speckled.jpg"
+  },
+  {
+    "id": "DESC-003",
+    "name": "Copper-Cased Mechanical Keyboard",
+    "category": "Electronics",
+    "description": "A heavyweight typing tool housed in a CNC-machined copper chassis that develops a unique patina over time. Features Gateron Brown switches for a crisp, rhythmic 'thock' sound.",
+    "quantity": 5,
+    "price": 310.00,
+    "status": "Low Stock",
+    "restock": 8,
+    "img": "https://api.example.com/v1/images/tech/mechanical-keyboard-copper.jpg"
+  },
+  {
+    "id": "DESC-004",
+    "name": "Sandalwood & Bourbon Candle",
+    "category": "Home Fragrance",
+    "description": "Evoking a sun-drenched library, this candle opens with notes of aged leather and dry cedar, settling into a warm, smoky bourbon finish. Poured into a reusable amber glass jar.",
+    "quantity": 120,
+    "price": 24.00,
+    "status": "In Stock",
+    "restock": 30,
+    "img": "https://api.example.com/v1/images/home/candle-bourbon-sandalwood.jpg"
+  },
+  {
+    "id": "DESC-005",
+    "name": "Full-Grain Leather Weekend Bag",
+    "category": "Travel",
+    "description": "Crafted from vegetable-tanned Italian leather, this bag is built to survive decades. The brass hardware is antique-finished, and the interior is lined with rugged cotton duck canvas.",
+    "quantity": 8,
+    "price": 425.00,
+    "status": "Low Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/travel/leather-duffle-tan.jpg"
+  },
+  {
+    "id": "DESC-006",
+    "name": "Obsidian Japanese Chef's Knife",
+    "category": "Kitchenware",
+    "description": "Forged using the San Mai technique with a VG-10 steel core. The handle is scorched charred oak (Shou Sugi Ban) for a waterproof, textured grip and striking dark aesthetic.",
+    "quantity": 15,
+    "price": 185.00,
+    "status": "In Stock",
+    "restock": 8,
+    "img": "https://api.example.com/v1/images/kitchen/gyuto-knife-obsidian.jpg"
+  },
+  {
+    "id": "DESC-007",
+    "name": "Organic Merino Wool Throw",
+    "category": "Bedding",
+    "description": "An oversized throw woven in a classic herringbone pattern. Ethically sourced merino wool provides breathable warmth without the itchiness of traditional wool fibers.",
+    "quantity": 30,
+    "price": 115.00,
+    "status": "In Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/home/merino-throw-herringbone.jpg"
+  },
+  {
+    "id": "DESC-008",
+    "name": "Minimalist Brushed Brass Lamp",
+    "category": "Lighting",
+    "description": "A single continuous arc of brushed brass ending in a frosted glass globe. Emits a warm, diffused light perfect for late-night sketching or focused study.",
+    "quantity": 22,
+    "price": 145.00,
+    "status": "In Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/lighting/brass-arc-lamp.jpg"
+  },
+  {
+    "id": "DESC-009",
+    "name": "Raw Indigo Selvedge Denim",
+    "category": "Apparel",
+    "description": "Stiff and unwashed, these 14oz jeans are woven on vintage shuttle looms. They feature a classic red-line selvedge ID and will fade uniquely based on the owner's movements.",
+    "quantity": 50,
+    "price": 195.00,
+    "status": "In Stock",
+    "restock": 20,
+    "img": "https://api.example.com/v1/images/apparel/selvedge-denim-raw.jpg"
+  },
+  {
+    "id": "DESC-010",
+    "name": "Aluminum Noise-Cancelling Headphones",
+    "category": "Electronics",
+    "description": "Wrapped in supple lambskin leather with earcups carved from solid aluminum. 40mm beryllium drivers deliver an airy, expansive soundstage and reference-neutral profile.",
+    "quantity": 10,
+    "price": 549.00,
+    "status": "In Stock",
+    "restock": 5,
+    "img": "https://api.example.com/v1/images/tech/hifi-headphones-aluminum.jpg"
+  },
+  {
+    "id": "DESC-011",
+    "name": "Aged Western Red Cedar Planter",
+    "category": "Outdoor",
+    "description": "Constructed from rot-resistant cedar with dovetail joints. Left untreated to allow it to weather to a beautiful silvery-grey over time in the garden.",
+    "quantity": 18,
+    "price": 85.00,
+    "status": "In Stock",
+    "restock": 8,
+    "img": "https://api.example.com/v1/images/garden/cedar-planter-box.jpg"
+  },
+  {
+    "id": "DESC-012",
+    "name": "Matte White Gooseneck Kettle",
+    "category": "Appliances",
+    "description": "A sleek, minimalist electric kettle designed for pour-over precision. The matte ceramic finish stays cool, while the base features a hidden OLED temperature screen.",
+    "quantity": 25,
+    "price": 159.00,
+    "status": "In Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/kitchen/electric-kettle-white.jpg"
+  },
+  {
+    "id": "DESC-013",
+    "name": "Linen-Bound Artist Sketchbook",
+    "category": "Stationery",
+    "description": "Heavy 160gsm cream paper wrapped in coarse, oatmeal-colored linen. Designed for watercolor and ink with a lay-flat binding for seamless landscape drawing.",
+    "quantity": 60,
+    "price": 28.00,
+    "status": "In Stock",
+    "restock": 20,
+    "img": "https://api.example.com/v1/images/stationery/linen-sketchbook.jpg"
+  },
+  {
+    "id": "DESC-014",
+    "name": "Solid Raw Brass Fountain Pen",
+    "category": "Stationery",
+    "description": "A heavy, balanced writing instrument that develops a dark, unique patina. A statement piece that feels like a vintage artifact in the hand.",
+    "quantity": 14,
+    "price": 95.00,
+    "status": "In Stock",
+    "restock": 8,
+    "img": "https://api.example.com/v1/images/stationery/brass-fountain-pen.jpg"
+  },
+  {
+    "id": "DESC-015",
+    "name": "Ocean Plastic Pro Yoga Mat",
+    "category": "Fitness",
+    "description": "Manufactured from plastic reclaimed from coastlines. Features a laser-etched alignment map on a high-grip surface to help practitioners maintain proper form.",
+    "quantity": 40,
+    "price": 88.00,
+    "status": "In Stock",
+    "restock": 15,
+    "img": "https://api.example.com/v1/images/fitness/yoga-mat-recycled.jpg"
+  },
+  {
+    "id": "DESC-016",
+    "name": "Smoked Glass Decanter Set",
+    "category": "Barware",
+    "description": "A geometric decanter with four heavy-bottomed tumblers. The charcoal tint of the glass enhances the rich amber colors of aged spirits like scotch or rye.",
+    "quantity": 20,
+    "price": 120.00,
+    "status": "In Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/home/decantur-set-smoked.jpg"
+  },
+  {
+    "id": "DESC-017",
+    "name": "Cold-Pressed Honey & Beeswax Soap",
+    "category": "Personal Care",
+    "description": "Smelling of summer meadows, these bars use raw honey as a humectant. Hand-cut and cured for six weeks to ensure a long-lasting, moisturizing lather.",
+    "quantity": 200,
+    "price": 9.50,
+    "status": "In Stock",
+    "restock": 50,
+    "img": "https://api.example.com/v1/images/care/honey-soap-bar.jpg"
+  },
+  {
+    "id": "DESC-018",
+    "name": "Copper-Plated Ash Wood Trowel",
+    "category": "Outdoor",
+    "description": "Naturally antimicrobial copper plating glides through soil effortlessly. The handle is turned from FSC-certified ash wood, designed to be a garden heirloom.",
+    "quantity": 35,
+    "price": 42.00,
+    "status": "In Stock",
+    "restock": 15,
+    "img": "https://api.example.com/v1/images/garden/copper-trowel-ash.jpg"
+  },
+  {
+    "id": "DESC-019",
+    "name": "Mist-Grey Bamboo Sheets",
+    "category": "Bedding",
+    "description": "Silkier than cotton and naturally thermal-regulating. These bamboo-derived sheets have a natural luster and a cool-to-the-touch feel ideal for hot sleepers.",
+    "quantity": 25,
+    "price": 165.00,
+    "status": "In Stock",
+    "restock": 10,
+    "img": "https://api.example.com/v1/images/home/bamboo-sheets-grey.jpg"
+  },
+  {
+    "id": "DESC-020",
+    "name": "Cherry Wood Bluetooth Radio",
+    "category": "Electronics",
+    "description": "1950s aesthetic meets modern connectivity. Wrapped in real cherry wood veneer with analog-style tuning knobs and a warm, mid-forward sound profile.",
+    "quantity": 11,
+    "price": 129.00,
+    "status": "In Stock",
+    "restock": 5,
+    "img": "https://api.example.com/v1/images/tech/retro-radio-cherry.jpg"
+  }
+]
