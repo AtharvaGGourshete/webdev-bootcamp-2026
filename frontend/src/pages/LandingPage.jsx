@@ -1,176 +1,197 @@
-import React from "react";
-import { Box, BarChart3, Package, ShieldCheck, Zap } from "lucide-react";
+import { Zap, BarChart3, ShieldCheck, Users, TrendingUp, Box } from "lucide-react";
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-      {/* Hero Section */}
-      <header className="container mx-auto px-6 py-20 text-center">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Inventory management <br />
-          <span className="text-blue-600">without the headache.</span>
-        </h1>
-        <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-          Track stock levels, manage orders, and analyze sales data in
-          real-time. Stop guessing and start growing with StockFlow.
-        </p>
-        <div className="flex flex-col md:flex-row justify-center gap-4">
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-blue-700">
-            Get Started
-          </button>
-        </div>
-      </header>
+    <div className="font-sans" style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        .landing { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .feature-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(15,118,110,0.1); }
+      `}</style>
 
-      {/* Features Section */}
-      <section id="features" className="bg-white py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">
-            Everything you need to scale
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <FeatureCard
-              icon={<Zap className="text-yellow-500" />}
-              title="Real-time Tracking"
-              description="Automatic updates across all warehouses the moment a sale is made."
-            />
-            <FeatureCard
-              icon={<BarChart3 className="text-blue-500" />}
-              title="Advanced Analytics"
-              description="Predict demand and avoid overstocking with our AI-driven insights."
-            />
-            <FeatureCard
-              icon={<ShieldCheck className="text-green-500" />}
-              title="Secure & Reliable"
-              description="Enterprise-grade encryption keeps your supplier and customer data safe."
-            />
+      <div className="landing">
+
+        {/* ── HERO ── */}
+        <section className="text-center px-6 py-24 max-w-3xl mx-auto">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6"
+            style={{ background: '#ccfbf1', color: 'var(--color-primary)' }}>
+            Built for modern inventory teams
+          </span>
+
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+            Manage your stock,{" "}
+            <span style={{ color: 'var(--color-primary)' }}>not spreadsheets.</span>
+          </h1>
+
+          <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'var(--color-muted)', lineHeight: '1.7' }}>
+            StockFlow gives your team real-time visibility over every product,
+            every sale, and every restock — in one clean dashboard.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/register">
+              <button className="px-8 py-3 rounded-xl text-white font-semibold text-sm hover:opacity-90 transition"
+                style={{ background: 'var(--color-primary)' }}>
+                Get Started Free
+              </button>
+            </a>
+            <a href="/login">
+              <button className="px-8 py-3 rounded-xl font-semibold text-sm hover:bg-white transition"
+                style={{ border: '2px solid var(--color-border)', color: 'var(--color-text)' }}>
+                Login
+              </button>
+            </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Simple, transparent pricing
-            </h2>
-            <p className="text-slate-600">
-              No hidden fees. Scale as your warehouse grows.
-            </p>
+        {/* ── STATS BAR ── */}
+        <section className="py-10 bg-white"
+          style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              {[
+                { value: '10K+', label: 'Products Tracked' },
+                { value: '500+', label: 'Teams Using StockFlow' },
+                { value: '99.9%', label: 'Uptime' },
+                { value: '< 1s', label: 'Real-time Updates' },
+              ].map(({ value, label }) => (
+                <div key={label}>
+                  <p className="text-3xl font-extrabold mb-1" style={{ color: 'var(--color-primary)' }}>{value}</p>
+                  <p className="text-sm" style={{ color: 'var(--color-muted)' }}>{label}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Starter Plan */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-500 transition shadow-sm">
-              <h3 className="text-xl font-bold mb-2">Starter</h3>
-              <div className="text-4xl font-bold mb-6">
-                $49
-                <span className="text-lg text-slate-500 font-normal">/mo</span>
+        {/* ── FEATURES ── */}
+        <section className="py-24" style={{ background: 'var(--color-bg)' }}>
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-14">
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>Features</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold">Everything your team needs</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { icon: <Zap size={22} />, title: "Real-time Stock", desc: "Every sale instantly updates inventory. No refresh, no lag.", color: 'var(--color-accent)' },
+                { icon: <BarChart3 size={22} />, title: "Revenue Reports", desc: "See which products and categories drive the most revenue.", color: 'var(--color-primary)' },
+                { icon: <ShieldCheck size={22} />, title: "Role-based Access", desc: "Admins manage everything. Staff handle daily sales only.", color: '#22c55e' },
+                { icon: <Users size={22} />, title: "Staff Approval", desc: "New staff need admin approval before they can login.", color: '#8b5cf6' },
+                { icon: <TrendingUp size={22} />, title: "Low Stock Alerts", desc: "Get alerted when items hit restock level automatically.", color: '#ef4444' },
+                { icon: <Box size={22} />, title: "Categories", desc: "Organise products into categories and filter reports.", color: '#f59e0b' },
+              ].map(({ icon, title, desc, color }) => (
+                <div key={title} className="feature-card p-6 rounded-2xl bg-white"
+                  style={{ border: '1px solid var(--color-border)' }}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                    style={{ background: color + '18', color }}>
+                    {icon}
+                  </div>
+                  <h3 className="font-bold text-base mb-1">{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── HOW IT WORKS ── */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>How it works</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold">Up and running in minutes</h2>
+            </div>
+            <div className="space-y-4">
+              {[
+                { step: 1, title: "Create your admin account", desc: "Sign up as admin — instant access, no approval needed." },
+                { step: 2, title: "Add products and categories", desc: "Set up inventory with names, prices, stock levels, and categories." },
+                { step: 3, title: "Invite and approve staff", desc: "Staff register themselves. You approve them from your dashboard." },
+                { step: 4, title: "Start recording sales", desc: "Staff log sales in seconds. Stock and reports update automatically." },
+              ].map(({ step, title, desc }) => (
+                <div key={step} className="flex gap-5 items-start p-5 rounded-2xl"
+                  style={{ border: '1px solid var(--color-border)' }}>
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                    style={{ background: 'var(--color-primary)' }}>
+                    {step}
+                  </div>
+                  <div>
+                    <h3 className="font-bold mb-1">{title}</h3>
+                    <p className="text-sm" style={{ color: 'var(--color-muted)' }}>{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── PRICING ── */}
+        <section className="py-24" style={{ background: 'var(--color-bg)' }}>
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>Pricing</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Simple, honest pricing</h2>
+            <p className="mb-14" style={{ color: 'var(--color-muted)' }}>No hidden fees. Cancel anytime.</p>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto items-start">
+              {[
+                { title: "Starter", price: "$49", sub: "/mo", features: ["500 SKUs", "2 Users", "Basic Reports"], cta: "Get Started" },
+                { title: "Pro", price: "$129", sub: "/mo", features: ["Unlimited SKUs", "10 Users", "Advanced Analytics", "API Access"], cta: "Start Free Trial", highlight: true },
+                { title: "Enterprise", price: "Custom", sub: "", features: ["Multi-warehouse", "Dedicated Manager", "Custom Integrations"], cta: "Contact Sales" },
+              ].map(({ title, price, sub, features, cta, highlight }) => (
+                <div key={title} className="p-8 rounded-2xl text-left"
+                  style={{
+                    border: highlight ? '2px solid var(--color-primary)' : '1px solid var(--color-border)',
+                    background: highlight ? 'var(--color-primary)' : 'white'
+                  }}>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: highlight ? 'white' : 'var(--color-text)' }}>{title}</h3>
+                  <div className="text-4xl font-extrabold mb-1" style={{ color: highlight ? 'white' : 'var(--color-text)' }}>
+                    {price}<span className="text-base font-normal opacity-70">{sub}</span>
+                  </div>
+                  <ul className="space-y-2 my-6 text-sm">
+                    {features.map(f => (
+                      <li key={f} className="flex items-center gap-2"
+                        style={{ color: highlight ? 'rgba(255,255,255,0.85)' : 'var(--color-muted)' }}>
+                        <span style={{ color: highlight ? 'white' : 'var(--color-primary)' }}>✓</span> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="/register">
+                    <button className="w-full py-2.5 rounded-xl font-semibold text-sm transition hover:opacity-90"
+                      style={highlight
+                        ? { background: 'white', color: 'var(--color-primary)' }
+                        : { background: 'var(--color-primary)', color: 'white' }}>
+                      {cta}
+                    </button>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-6 max-w-2xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>FAQ</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold">Common questions</h2>
+            </div>
+            {[
+              { q: "How long does setup take?", a: "Most teams are fully set up in under 24 hours." },
+              { q: "Can staff access admin features?", a: "No. Staff can only log sales and view products. Admins control everything else." },
+              { q: "What happens when stock runs low?", a: "Both admins and staff see a Low Stock Alert on their dashboard immediately." },
+              { q: "Is my data safe?", a: "Yes. Passwords are hashed with bcrypt and access is JWT-authenticated." },
+            ].map(({ q, a }) => (
+              <div key={q} className="py-6" style={{ borderBottom: '1px solid var(--color-border)' }}>
+                <h4 className="font-bold mb-2">{q}</h4>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>{a}</p>
               </div>
-              <ul className="space-y-4 mb-8 text-slate-600 text-sm">
-                <li className="flex items-center gap-2">✓ Up to 500 SKUs</li>
-                <li className="flex items-center gap-2">✓ 2 User Accounts</li>
-                <li className="flex items-center gap-2">✓ Basic Reporting</li>
-              </ul>
-              <button className="w-full py-3 rounded-lg border border-blue-600 text-blue-600 font-bold hover:bg-blue-50">
-                Choose Starter
-              </button>
-            </div>
-
-            {/* Pro Plan */}
-            <div className="bg-white p-8 rounded-2xl border-2 border-blue-600 relative shadow-xl transform scale-105">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">
-                Most Popular
-              </span>
-              <h3 className="text-xl font-bold mb-2">Professional</h3>
-              <div className="text-4xl font-bold mb-6">
-                $129
-                <span className="text-lg text-slate-500 font-normal">/mo</span>
-              </div>
-              <ul className="space-y-4 mb-8 text-slate-600 text-sm">
-                <li className="flex items-center gap-2 font-semibold text-slate-800">
-                  ✓ Unlimited SKUs
-                </li>
-                <li className="flex items-center gap-2">✓ 10 User Accounts</li>
-                <li className="flex items-center gap-2">
-                  ✓ Advanced Forecasting
-                </li>
-                <li className="flex items-center gap-2">✓ API Access</li>
-              </ul>
-              <button className="w-full py-3 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition">
-                Start 14-Day Trial
-              </button>
-            </div>
-
-            {/* Enterprise */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-500 transition shadow-sm">
-              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-              <div className="text-4xl font-bold mb-6">Custom</div>
-              <ul className="space-y-4 mb-8 text-slate-600 text-sm">
-                <li className="flex items-center gap-2">
-                  ✓ Multi-warehouse support
-                </li>
-                <li className="flex items-center gap-2">✓ Dedicated Manager</li>
-                <li className="flex items-center gap-2">
-                  ✓ Custom Integrations
-                </li>
-              </ul>
-              <button className="w-full py-3 rounded-lg border border-slate-300 text-slate-700 font-bold hover:bg-slate-50">
-                Contact Sales
-              </button>
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-8">
-            <div>
-              <h4 className="text-lg font-bold mb-2">
-                How long does it take to set up?
-              </h4>
-              <p className="text-slate-600">
-                Most teams are up and running in less than 24 hours. Our bulk
-                import tool makes it easy to migrate your existing data from
-                Excel or Shopify.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-2">
-                Can I integrate with my current POS?
-              </h4>
-              <p className="text-slate-600">
-                Yes, we offer native integrations with Square, Clover, and
-                Shopify, plus a robust API for custom setups.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-2">
-                What happens if I go over my SKU limit?
-              </h4>
-              <p className="text-slate-600">
-                We won't cut you off. We'll simply notify you to upgrade to the
-                next tier in your following billing cycle.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };
-
-const FeatureCard = ({ icon, title, description }) => (
-  <div className="p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:shadow-md transition">
-    <div className="mb-4">{icon}</div>
-    <h3 className="text-xl font-bold mb-2">{title}</h3>
-    <p className="text-slate-600">{description}</p>
-  </div>
-);
 
 export default LandingPage;

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #0f766e;
+  --color-primary-hover: #0d6b63;
+  --color-accent: #f59e0b;
+  --color-bg: #f8fafc;
+  --color-white: #ffffff;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-danger: #ef4444;
+  --color-success: #22c55e;
+}
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

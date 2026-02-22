@@ -1,51 +1,36 @@
-import React from 'react'
-
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      {/* Header/Title Section */}
+    <div className="font-sans" style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
       <section className="container mx-auto px-6 py-24 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          We’re building the <br />
-          <span className="text-blue-600">future of logistics.</span>
+        <h1 className="text-5xl font-bold mb-6">
+          Built for people, <br />
+          <span style={{ color: 'var(--color-primary)' }}>not spreadsheets.</span>
         </h1>
-        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          StockFlow started in 2024 with a simple mission: to make inventory 
-          management accessible to everyone. We believe that small businesses 
-          should have the same powerful tools as global giants.
+        <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
+          StockFlow started in 2024 with one goal — make inventory management 
+          simple enough for anyone, powerful enough for everyone.
         </p>
       </section>
 
-      {/* Values Grid */}
-      <section className="border-y border-slate-100 py-20 bg-slate-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="text-xl font-bold mb-3">Simplicity First</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Software shouldn't require a manual. We design for clarity, 
-                eliminating unnecessary clicks and complex menus.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-3">Speed matters</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Our infrastructure is built for real-time updates. When your stock 
-                changes, your dashboard reflects it instantly—no lag.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-3">Customer Driven</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                We aren't building for ourselves. Every feature we ship is 
-                based on direct feedback from the people using StockFlow.
-              </p>
-            </div>
+            {[
+              { title: "Simplicity First", body: "Software shouldn't need a manual. We design for clarity." },
+              { title: "Speed Matters", body: "Real-time updates — when stock changes, your dashboard reflects it instantly." },
+              { title: "Customer Driven", body: "Every feature is based on direct feedback from real users." },
+            ].map(({ title, body }) => (
+              <div key={title} className="p-6 rounded-2xl" style={{ border: '1px solid var(--color-border)' }}>
+                <div className="w-2 h-8 rounded mb-4" style={{ background: 'var(--color-primary)' }} />
+                <h3 className="text-xl font-bold mb-3">{title}</h3>
+                <p className="text-sm" style={{ color: 'var(--color-muted)' }}>{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;
