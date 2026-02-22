@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, Form, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from sqlalchemy import func
+from fastapi.middleware.cors import CORSMiddleware
 import json
 import models
 import schemas
@@ -11,6 +12,14 @@ from auth import hash_password, verify_password, create_access_token, get_curren
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  # allow all HTTP methods
+    allow_headers=["*"],  # allow all headers
+)
 
 @app.post("/signup", response_model=schemas.UserResponse)
 def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -46,18 +55,24 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
     return new_user
 
+
 @app.post("/login", response_model=schemas.Token)
-def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = db.query(models.User).filter(models.User.username == form_data.username).first()
-    if not user or not verify_password(form_data.password, user.hashed_password):
+def login(
+    email: str = Form(...),     
+    password: str = Form(...),   
+    db: Session = Depends(get_db)
+):
+    user = db.query(models.User).filter(models.User.email_id == email).first()
+    
+    if not user or not verify_password(password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    
-    access_token = create_access_token(data={"sub": user.username})
-    return {"access_token": access_token, "token_type": "bearer"}
+
+    access_token = create_access_token(data={"sub": user.email_id})
+    return {"access_token": access_token, "token_type": "bearer", "role": user.role}
 
 # Product endpoints
 

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -13,10 +16,40 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    // Later: call backend API here
+    try {
+      const response = await fetch("http://127.0.0.1:8000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          grant_type: "password",
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+      console.log("Server Response:", data);
+
+      if (response.ok) {
+        const role = data.role;
+        localStorage.setItem("token", data.access_token); 
+        localStorage.setItem("role", role);
+
+        alert("Login successful!");  
+
+        if (role === "admin") {
+          navigate("/admin/dashboard");
+        } else if (role === "staff") {
+          navigate("/staff/dashboard");
+        }
+      } else {
+        alert("Login failed: " + data.detail);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
