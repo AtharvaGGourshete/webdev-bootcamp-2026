@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const BACKEND_URL = import.meta.env.VITE_API_URL;
+
 const StaffDashboard = () => {
   const [products, setProducts] = useState([]);
   const [showSaleForm, setShowSaleForm] = useState(false);
