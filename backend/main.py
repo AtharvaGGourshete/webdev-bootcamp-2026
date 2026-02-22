@@ -210,3 +210,65 @@ def get_stats(db: Session = Depends(get_db), current_user: models.User = Depends
         "total_revenue": total_revenue,
         "low_stock": low_stock
     }
+
+@app.post("/categories", response_model=schemas.CategoryResponse, status_code=status.HTTP_201_CREATED)
+def create_category(category: schemas.CategoryCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    if current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Only admin can add categories")
+    
+    existing = db.query(models.Category).filter(models.Category.name == category.name).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Category already exists")
+    
+    new_category = models.Category(name=category.name)
+    db.add(new_category)
+    db.commit()
+    db.refresh(new_category)
+    return new_category
+
+@app.get("/categories", response_model=list[schemas.CategoryResponse])
+def list_categories(db: Session = Depends(get_db)):
+    return db.query(models.Category).all()
+
+@app.delete("/categories/{category_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_category(category_id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    if current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Only admin can delete categories")
+    
+    category = db.query(models.Category).filter(models.Category.id == category_id).first()
+    if not category:
+        raise HTTPException(status_code=404, detail="Category not found")
+    
+    db.delete(category)
+    db.commit()
+    return None
+
+@app.get("/reports")
+def get_reports(db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    sales = db.query(models.Sale).all()
+
+    product_report = {} 
+    category_report = {}  
+
+    for sale in sales:
+        product = db.query(models.Product).filter(models.Product.id == sale.product_id).first()
+        if not product:
+            continue
+
+        revenue = sale.quantity_sold * product.price
+
+        if product.name not in product_report:
+            product_report[product.name] = {"quantity": 0, "revenue": 0}
+        product_report[product.name]["quantity"] += sale.quantity_sold
+        product_report[product.name]["revenue"] += revenue
+
+        if product.category not in category_report:
+            category_report[product.category] = {"quantity": 0, "revenue": 0}
+        product.category and category_report[product.category]["quantity"].__class__ 
+        category_report[product.category]["quantity"] += sale.quantity_sold
+        category_report[product.category]["revenue"] += revenue
+
+    return {
+        "by_product": product_report,
+        "by_category": category_report
+    }
