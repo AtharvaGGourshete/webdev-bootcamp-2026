@@ -13,7 +13,7 @@ const StaffDashboard = () => {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await fetch("http://127.0.0.1:8000/products");
+    const res = await fetch(`${BACKEND_URL}/products`);
     if (res.ok) {
       const data = await res.json();
       setProducts(data.items);
@@ -23,7 +23,7 @@ const StaffDashboard = () => {
   const handleSaleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://127.0.0.1:8000/sales", {
+    const res = await fetch(`${BACKEND_URL}/sales`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

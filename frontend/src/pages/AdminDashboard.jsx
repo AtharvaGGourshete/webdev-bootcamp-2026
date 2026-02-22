@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const BACKEND_URL = import.meta.env.VITE_API_URL;
+
 const AdminDashboard = () => {
   const [pendingStaff, setPendingStaff] = useState([]);
   const [products, setProducts] = useState([]);
@@ -28,14 +30,14 @@ const AdminDashboard = () => {
 
   //Staff
   const fetchPendingStaff = async () => {
-    const res = await fetch("http://127.0.0.1:8000/users/unverified", {
+    const res = await fetch(`${BACKEND_URL}/users/unverified`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (res.ok) setPendingStaff(await res.json());
   };
 
   const approveStaff = async (id) => {
-    await fetch(`http://127.0.0.1:8000/users/verify/${id}`, {
+    await fetch(`${BACKEND_URL}/users/verify/${id}`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -44,7 +46,7 @@ const AdminDashboard = () => {
 
   //Products
   const fetchProducts = async () => {
-    const res = await fetch("http://127.0.0.1:8000/products");
+    const res = await fetch(`${BACKEND_URL}/products`);
     if (res.ok) {
       const data = await res.json();
       setProducts(data.items);
@@ -52,7 +54,7 @@ const AdminDashboard = () => {
   };
 
   const fetchStats = async () => {
-    const res = await fetch("http://127.0.0.1:8000/stats", {
+    const res = await fetch(`${BACKEND_URL}/stats`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (res.ok) setStats(await res.json());
@@ -66,8 +68,8 @@ const AdminDashboard = () => {
     e.preventDefault();
 
     const url = editingProduct
-      ? `http://127.0.0.1:8000/products/${editingProduct.id}`
-      : "http://127.0.0.1:8000/products";
+      ? `${BACKEND_URL}/products/${editingProduct.id}`
+      : `${BACKEND_URL}/products`;
 
     const method = editingProduct ? "PUT" : "POST";
 
@@ -106,7 +108,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this product?")) return;
-    await fetch(`http://127.0.0.1:8000/products/${id}`, {
+    await fetch(`${BACKEND_URL}/products/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
