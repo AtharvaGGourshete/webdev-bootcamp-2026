@@ -10,6 +10,8 @@ const AdminDashboard = () => {
   const [newCategory, setNewCategory] = useState("");
   const [reports, setReports] = useState({ by_product: {}, by_category: {} });
   const [stats, setStats] = useState({ total_products: 0, total_sales: 0, total_revenue: 0, low_stock: 0 });
+  const [staffReport, setStaffReport] = useState([]);
+  const [expandedStaff, setExpandedStaff] = useState(null);
   const [formData, setFormData] = useState({
     name: "", category: "", price: "", quantity: "",
     description: "", img: "", restock: 5, status: "active", addedby: 1
@@ -19,7 +21,12 @@ const AdminDashboard = () => {
   const lowStockProducts = products.filter(p => p.quantity <= p.restock);
 
   useEffect(() => {
-    fetchPendingStaff(); fetchProducts(); fetchStats(); fetchReports(); fetchCategories();
+    fetchPendingStaff();
+    fetchProducts();
+    fetchStats();
+    fetchReports();
+    fetchCategories();
+    fetchStaffReport();
   }, []);
 
   const fetchPendingStaff = async () => {
@@ -45,6 +52,12 @@ const AdminDashboard = () => {
   const fetchCategories = async () => {
     const res = await fetch(`${BACKEND_URL}/categories`);
     if (res.ok) setCategories(await res.json());
+  };
+  const fetchStaffReport = async () => {
+    const res = await fetch(`${BACKEND_URL}/reports/staff`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (res.ok) setStaffReport(await res.json());
   };
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleSubmit = async (e) => {
@@ -149,9 +162,60 @@ const AdminDashboard = () => {
         ))}
       </div>
 
+      {/* Staff Sales Report */}
+      <div className="bg-white p-6 rounded-2xl mb-8 border border-slate-200">
+        <h2 className="text-lg font-semibold mb-4 text-slate-800">Staff Sales Report</h2>
+
+        {staffReport.length === 0
+          ? <p className="text-slate-500">No staff sales data yet.</p>
+          : staffReport.map((s) => (
+            <div key={s.email} className="mb-2">
+
+              {/* Staff Row */}
+              <div
+                className="flex justify-between items-center py-3 px-2 rounded-lg cursor-pointer hover:bg-slate-50"
+                style={{ borderBottom: '1px solid #e2e8f0' }}
+                onClick={() => setExpandedStaff(expandedStaff === s.email ? null : s.email)}
+              >
+                <div>
+                  <p className="font-medium text-slate-800">{s.staff_name}</p>
+                  <p className="text-xs text-slate-500">{s.email}</p>
+                </div>
+                <div className="flex gap-6 items-center">
+                  <div className="text-right">
+                    <p className="text-xs text-slate-500">Items Sold</p>
+                    <p className="font-semibold text-teal-700">{s.total_items_sold}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs text-slate-500">Revenue</p>
+                    <p className="font-semibold text-teal-700">₹{s.total_revenue.toFixed(2)}</p>
+                  </div>
+                  <span className="text-slate-400 text-sm">{expandedStaff === s.email ? '▲' : '▼'}</span>
+                </div>
+              </div>
+
+              {/* Expanded Product Breakdown */}
+              {expandedStaff === s.email && (
+                <div className="mt-2 ml-4 mb-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Products Sold</p>
+                  {Object.keys(s.products_sold).length === 0
+                    ? <p className="text-sm text-slate-400">No sales yet</p>
+                    : Object.entries(s.products_sold).map(([product, qty]) => (
+                      <div key={product} className="flex justify-between py-1.5 border-b border-slate-200 last:border-0">
+                        <span className="text-sm text-slate-700">{product}</span>
+                        <span className="text-sm font-medium text-teal-700">{qty} units</span>
+                      </div>
+                    ))}
+                </div>
+              )}
+
+            </div>
+          ))}
+      </div>
+
       {/* Products Header */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-slate-800">Products</h2>
+        <h2 className="text-xl ml-1 mb-3 font-semibold text-slate-800">Products</h2>
         <button onClick={() => { setShowForm(!showForm); setEditingProduct(null); }}
           className="px-4 py-2 rounded-lg text-white text-sm font-medium bg-teal-700 hover:bg-teal-800">
           {showForm ? "Cancel" : "+ Add Product"}

@@ -272,3 +272,36 @@ def get_reports(db: Session = Depends(get_db), current_user: models.User = Depen
         "by_product": product_report,
         "by_category": category_report
     }
+
+@app.get("/reports/staff")
+def get_staff_report(db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    if current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Only admin can view staff reports")
+
+    staff_list = db.query(models.User).filter(models.User.role == "staff").all()
+    report = []
+
+    for staff in staff_list:
+        sales = db.query(models.Sale).filter(models.Sale.sold_by == staff.id).all()
+        
+        total_items_sold = sum(s.quantity_sold for s in sales)
+        total_revenue = 0
+        products_sold = {}
+
+        for sale in sales:
+            product = db.query(models.Product).filter(models.Product.id == sale.product_id).first()
+            if product:
+                total_revenue += sale.quantity_sold * product.price
+                if product.name not in products_sold:
+                    products_sold[product.name] = 0
+                products_sold[product.name] += sale.quantity_sold
+
+        report.append({
+            "staff_name": f"{staff.first_name} {staff.last_name}",
+            "email": staff.email_id,
+            "total_items_sold": total_items_sold,
+            "total_revenue": total_revenue,
+            "products_sold": products_sold  # { product_name: quantity }
+        })
+
+    return report
