@@ -12,27 +12,25 @@ const Navbar = () => {
   }
 
   return (
-    <nav style={{ background: 'var(--color-white)', borderBottom: '1px solid var(--color-border)' }} className="px-8 py-4 flex justify-between items-center sticky top-0 z-50">
-      <a href="/" className="flex items-center gap-2 font-bold text-xl" style={{ color: 'var(--color-primary)' }}>
+    <nav className="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+      <a href="/" className="flex items-center gap-2 font-bold text-xl text-teal-700">
         <Package size={28} />
         <span>StockFlow</span>
       </a>
 
       <div className="flex items-center gap-6">
-        <a href="/about" className="text-sm font-medium" style={{ color: 'var(--color-muted)' }}>About Us</a>
+        <a href="/about" className="text-sm font-medium text-slate-500">About Us</a>
 
         {token ? (
           <div className="relative">
-            <UserCircle size={34} className="cursor-pointer" style={{ color: 'var(--color-primary)' }}
+            <UserCircle size={34} className="cursor-pointer text-teal-700"
               onClick={() => setShowDropdown(!showDropdown)} />
             {showDropdown && (
-              <div className="absolute right-0 mt-2 bg-white rounded-xl shadow-lg p-4 w-44 z-10"
-                style={{ border: '1px solid var(--color-border)' }}>
-                <p className="text-xs mb-1" style={{ color: 'var(--color-muted)' }}>Logged in as</p>
-                <p className="font-semibold capitalize mb-3" style={{ color: 'var(--color-text)' }}>{role}</p>
+              <div className="absolute right-0 mt-2 bg-white rounded-xl shadow-lg p-4 w-44 z-10 border border-slate-200">
+                <p className="text-xs mb-1 text-slate-500">Logged in as</p>
+                <p className="font-semibold capitalize mb-3 text-slate-800">{role}</p>
                 <button onClick={handleLogout}
-                  className="w-full py-1.5 rounded-lg text-sm text-white font-medium"
-                  style={{ background: 'var(--color-danger)' }}>
+                  className="w-full py-1.5 rounded-lg text-sm text-white font-medium bg-red-500 hover:bg-red-600">
                   Logout
                 </button>
               </div>
@@ -40,8 +38,7 @@ const Navbar = () => {
           </div>
         ) : (
           <a href="/register">
-            <button className="px-4 py-2 rounded-lg text-sm text-white font-medium"
-              style={{ background: 'var(--color-primary)' }}>
+            <button className="px-4 py-2 rounded-lg text-sm text-white font-medium bg-teal-700 hover:bg-teal-800">
               Register
             </button>
           </a>

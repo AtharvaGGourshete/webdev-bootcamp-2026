@@ -25,12 +25,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--color-bg)' }}>
-      <div className="bg-white rounded-2xl shadow-sm p-10 w-full max-w-md" style={{ border: '1px solid var(--color-border)' }}>
-
+    <div className="min-h-screen flex items-center justify-center px-4 bg-slate-50">
+      <div className="bg-white rounded-2xl shadow-sm p-10 w-full max-w-md border border-slate-200">
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>Welcome back</h1>
-          <p className="text-sm mt-1" style={{ color: 'var(--color-muted)' }}>Login to your StockFlow account</p>
+          <h1 className="text-2xl font-bold text-slate-800">Welcome back</h1>
+          <p className="text-sm mt-1 text-slate-500">Login to your StockFlow account</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -39,23 +38,20 @@ const Login = () => {
             { label: "Password", name: "password", type: "password", placeholder: "••••••••" }
           ].map(({ label, name, type, placeholder }) => (
             <div key={name}>
-              <label className="block text-sm font-medium mb-1" style={{ color: 'var(--color-text)' }}>{label}</label>
+              <label className="block text-sm font-medium mb-1 text-slate-700">{label}</label>
               <input type={type} name={name} value={formData[name]} onChange={handleChange} required
                 placeholder={placeholder}
-                className="w-full px-4 py-2.5 rounded-lg text-sm outline-none placeholder:text-gray-400"
-                style={{ border: '1px solid var(--color-border)', background: 'var(--color-bg)' }} />
+                className="w-full px-4 py-2.5 rounded-lg text-sm outline-none border border-slate-200 bg-slate-50 placeholder:text-slate-400" />
             </div>
           ))}
-
           <button type="submit"
-            className="w-full py-2.5 rounded-lg text-white font-semibold text-sm mt-2"
-            style={{ background: 'var(--color-primary)' }}>
+            className="w-full py-2.5 rounded-lg text-white font-semibold text-sm bg-teal-700 hover:bg-teal-800 transition">
             Login
           </button>
         </form>
 
-        <p className="text-center text-sm mt-6" style={{ color: 'var(--color-muted)' }}>
-          Don't have an account? <a href="/register" style={{ color: 'var(--color-primary)' }} className="font-medium">Register</a>
+        <p className="text-center text-sm mt-6 text-slate-500">
+          Don't have an account? <a href="/register" className="text-teal-700 font-medium">Register</a>
         </p>
       </div>
     </div>

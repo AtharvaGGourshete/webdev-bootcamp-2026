@@ -2,7 +2,7 @@ import { Zap, BarChart3, ShieldCheck, Users, TrendingUp, Box } from "lucide-reac
 
 const LandingPage = () => {
   return (
-    <div className="font-sans" style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
+    <div className="font-sans bg-slate-50 text-slate-800">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         .landing { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -14,31 +14,28 @@ const LandingPage = () => {
 
         {/* ── HERO ── */}
         <section className="text-center px-6 py-24 max-w-3xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6"
-            style={{ background: '#ccfbf1', color: 'var(--color-primary)' }}>
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6 bg-teal-100/60 text-teal-700">
             Built for modern inventory teams
           </span>
 
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             Manage your stock,{" "}
-            <span style={{ color: 'var(--color-primary)' }}>not spreadsheets.</span>
+            <span className="text-teal-700">not spreadsheets.</span>
           </h1>
 
-          <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'var(--color-muted)', lineHeight: '1.7' }}>
+          <p className="text-lg mb-10 max-w-xl mx-auto text-slate-500" style={{ lineHeight: '1.7' }}>
             StockFlow gives your team real-time visibility over every product,
             every sale, and every restock — in one clean dashboard.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/register">
-              <button className="px-8 py-3 rounded-xl text-white font-semibold text-sm hover:opacity-90 transition"
-                style={{ background: 'var(--color-primary)' }}>
+              <button className="px-8 py-3 rounded-xl text-white font-semibold text-sm bg-teal-700 hover:bg-teal-800 transition">
                 Get Started Free
               </button>
             </a>
             <a href="/login">
-              <button className="px-8 py-3 rounded-xl font-semibold text-sm hover:bg-white transition"
-                style={{ border: '2px solid var(--color-border)', color: 'var(--color-text)' }}>
+              <button className="px-8 py-3 rounded-xl font-semibold text-sm border-2 border-slate-200 text-slate-700 hover:bg-white transition">
                 Login
               </button>
             </a>
@@ -46,8 +43,7 @@ const LandingPage = () => {
         </section>
 
         {/* ── STATS BAR ── */}
-        <section className="py-10 bg-white"
-          style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+        <section className="py-10 bg-white border-t border-b border-slate-200">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
@@ -57,8 +53,8 @@ const LandingPage = () => {
                 { value: '< 1s', label: 'Real-time Updates' },
               ].map(({ value, label }) => (
                 <div key={label}>
-                  <p className="text-3xl font-extrabold mb-1" style={{ color: 'var(--color-primary)' }}>{value}</p>
-                  <p className="text-sm" style={{ color: 'var(--color-muted)' }}>{label}</p>
+                  <p className="text-3xl font-extrabold mb-1 text-teal-700">{value}</p>
+                  <p className="text-sm text-slate-500">{label}</p>
                 </div>
               ))}
             </div>
@@ -66,29 +62,27 @@ const LandingPage = () => {
         </section>
 
         {/* ── FEATURES ── */}
-        <section className="py-24" style={{ background: 'var(--color-bg)' }}>
+        <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-14">
-              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>Features</p>
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3 text-teal-700">Features</p>
               <h2 className="text-3xl md:text-4xl font-extrabold">Everything your team needs</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: <Zap size={22} />, title: "Real-time Stock", desc: "Every sale instantly updates inventory. No refresh, no lag.", color: 'var(--color-accent)' },
-                { icon: <BarChart3 size={22} />, title: "Revenue Reports", desc: "See which products and categories drive the most revenue.", color: 'var(--color-primary)' },
-                { icon: <ShieldCheck size={22} />, title: "Role-based Access", desc: "Admins manage everything. Staff handle daily sales only.", color: '#22c55e' },
-                { icon: <Users size={22} />, title: "Staff Approval", desc: "New staff need admin approval before they can login.", color: '#8b5cf6' },
-                { icon: <TrendingUp size={22} />, title: "Low Stock Alerts", desc: "Get alerted when items hit restock level automatically.", color: '#ef4444' },
-                { icon: <Box size={22} />, title: "Categories", desc: "Organise products into categories and filter reports.", color: '#f59e0b' },
-              ].map(({ icon, title, desc, color }) => (
-                <div key={title} className="feature-card p-6 rounded-2xl bg-white"
-                  style={{ border: '1px solid var(--color-border)' }}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: color + '18', color }}>
+                { icon: <Zap size={22} />, title: "Real-time Stock", desc: "Every sale instantly updates inventory. No refresh, no lag.", iconBg: "bg-amber-50", iconColor: "text-amber-500" },
+                { icon: <BarChart3 size={22} />, title: "Revenue Reports", desc: "See which products and categories drive the most revenue.", iconBg: "bg-teal-50", iconColor: "text-teal-700" },
+                { icon: <ShieldCheck size={22} />, title: "Role-based Access", desc: "Admins manage everything. Staff handle daily sales only.", iconBg: "bg-green-50", iconColor: "text-green-600" },
+                { icon: <Users size={22} />, title: "Staff Approval", desc: "New staff need admin approval before they can login.", iconBg: "bg-purple-50", iconColor: "text-purple-600" },
+                { icon: <TrendingUp size={22} />, title: "Low Stock Alerts", desc: "Get alerted when items hit restock level automatically.", iconBg: "bg-red-50", iconColor: "text-red-500" },
+                { icon: <Box size={22} />, title: "Categories", desc: "Organise products into categories and filter reports.", iconBg: "bg-amber-50", iconColor: "text-amber-500" },
+              ].map(({ icon, title, desc, iconBg, iconColor }) => (
+                <div key={title} className="feature-card p-6 rounded-2xl bg-white border border-slate-200">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${iconBg} ${iconColor}`}>
                     {icon}
                   </div>
                   <h3 className="font-bold text-base mb-1">{title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>{desc}</p>
+                  <p className="text-sm leading-relaxed text-slate-500">{desc}</p>
                 </div>
               ))}
             </div>
@@ -99,7 +93,7 @@ const LandingPage = () => {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 max-w-3xl">
             <div className="text-center mb-14">
-              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>How it works</p>
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3 text-teal-700">How it works</p>
               <h2 className="text-3xl md:text-4xl font-extrabold">Up and running in minutes</h2>
             </div>
             <div className="space-y-4">
@@ -109,15 +103,13 @@ const LandingPage = () => {
                 { step: 3, title: "Invite and approve staff", desc: "Staff register themselves. You approve them from your dashboard." },
                 { step: 4, title: "Start recording sales", desc: "Staff log sales in seconds. Stock and reports update automatically." },
               ].map(({ step, title, desc }) => (
-                <div key={step} className="flex gap-5 items-start p-5 rounded-2xl"
-                  style={{ border: '1px solid var(--color-border)' }}>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                    style={{ background: 'var(--color-primary)' }}>
+                <div key={step} className="flex gap-5 items-start p-5 rounded-2xl border border-slate-200">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 bg-teal-700">
                     {step}
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">{title}</h3>
-                    <p className="text-sm" style={{ color: 'var(--color-muted)' }}>{desc}</p>
+                    <p className="text-sm text-slate-500">{desc}</p>
                   </div>
                 </div>
               ))}
@@ -126,39 +118,31 @@ const LandingPage = () => {
         </section>
 
         {/* ── PRICING ── */}
-        <section className="py-24" style={{ background: 'var(--color-bg)' }}>
+        <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-6 text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>Pricing</p>
+            <p className="text-sm font-semibold uppercase tracking-widest mb-3 text-teal-700">Pricing</p>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Simple, honest pricing</h2>
-            <p className="mb-14" style={{ color: 'var(--color-muted)' }}>No hidden fees. Cancel anytime.</p>
+            <p className="mb-14 text-slate-500">No hidden fees. Cancel anytime.</p>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto items-start">
               {[
-                { title: "Starter", price: "$49", sub: "/mo", features: ["500 SKUs", "2 Users", "Basic Reports"], cta: "Get Started" },
+                { title: "Starter", price: "$49", sub: "/mo", features: ["500 SKUs", "2 Users", "Basic Reports"], cta: "Get Started", highlight: false },
                 { title: "Pro", price: "$129", sub: "/mo", features: ["Unlimited SKUs", "10 Users", "Advanced Analytics", "API Access"], cta: "Start Free Trial", highlight: true },
-                { title: "Enterprise", price: "Custom", sub: "", features: ["Multi-warehouse", "Dedicated Manager", "Custom Integrations"], cta: "Contact Sales" },
+                { title: "Enterprise", price: "Custom", sub: "", features: ["Multi-warehouse", "Dedicated Manager", "Custom Integrations"], cta: "Contact Sales", highlight: false },
               ].map(({ title, price, sub, features, cta, highlight }) => (
-                <div key={title} className="p-8 rounded-2xl text-left"
-                  style={{
-                    border: highlight ? '2px solid var(--color-primary)' : '1px solid var(--color-border)',
-                    background: highlight ? 'var(--color-primary)' : 'white'
-                  }}>
-                  <h3 className="text-lg font-bold mb-1" style={{ color: highlight ? 'white' : 'var(--color-text)' }}>{title}</h3>
-                  <div className="text-4xl font-extrabold mb-1" style={{ color: highlight ? 'white' : 'var(--color-text)' }}>
+                <div key={title} className={`p-8 rounded-2xl text-left ${highlight ? 'bg-teal-700 border-2 border-teal-700' : 'bg-white border border-slate-200'}`}>
+                  <h3 className={`text-lg font-bold mb-1 ${highlight ? 'text-white' : 'text-slate-800'}`}>{title}</h3>
+                  <div className={`text-4xl font-extrabold mb-1 ${highlight ? 'text-white' : 'text-slate-800'}`}>
                     {price}<span className="text-base font-normal opacity-70">{sub}</span>
                   </div>
                   <ul className="space-y-2 my-6 text-sm">
                     {features.map(f => (
-                      <li key={f} className="flex items-center gap-2"
-                        style={{ color: highlight ? 'rgba(255,255,255,0.85)' : 'var(--color-muted)' }}>
-                        <span style={{ color: highlight ? 'white' : 'var(--color-primary)' }}>✓</span> {f}
+                      <li key={f} className={`flex items-center gap-2 ${highlight ? 'text-white opacity-90' : 'text-slate-500'}`}>
+                        <span className={highlight ? 'text-white' : 'text-teal-700'}>✓</span> {f}
                       </li>
                     ))}
                   </ul>
                   <a href="/register">
-                    <button className="w-full py-2.5 rounded-xl font-semibold text-sm transition hover:opacity-90"
-                      style={highlight
-                        ? { background: 'white', color: 'var(--color-primary)' }
-                        : { background: 'var(--color-primary)', color: 'white' }}>
+                    <button className={`w-full py-2.5 rounded-xl font-semibold text-sm transition hover:opacity-90 ${highlight ? 'bg-white text-teal-700' : 'bg-teal-700 text-white'}`}>
                       {cta}
                     </button>
                   </a>
@@ -172,7 +156,7 @@ const LandingPage = () => {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 max-w-2xl">
             <div className="text-center mb-14">
-              <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-primary)' }}>FAQ</p>
+              <p className="text-sm font-semibold uppercase tracking-widest mb-3 text-teal-700">FAQ</p>
               <h2 className="text-3xl md:text-4xl font-extrabold">Common questions</h2>
             </div>
             {[
@@ -181,9 +165,9 @@ const LandingPage = () => {
               { q: "What happens when stock runs low?", a: "Both admins and staff see a Low Stock Alert on their dashboard immediately." },
               { q: "Is my data safe?", a: "Yes. Passwords are hashed with bcrypt and access is JWT-authenticated." },
             ].map(({ q, a }) => (
-              <div key={q} className="py-6" style={{ borderBottom: '1px solid var(--color-border)' }}>
+              <div key={q} className="py-6 border-b border-slate-200">
                 <h4 className="font-bold mb-2">{q}</h4>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>{a}</p>
+                <p className="text-sm leading-relaxed text-slate-500">{a}</p>
               </div>
             ))}
           </div>

@@ -33,33 +33,29 @@ const RegisterPage = () => {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-10" style={{ background: 'var(--color-bg)' }}>
-      <div className="bg-white rounded-2xl shadow-sm p-10 w-full max-w-md" style={{ border: '1px solid var(--color-border)' }}>
-
+    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-slate-50">
+      <div className="bg-white rounded-2xl shadow-sm p-10 w-full max-w-md border border-slate-200">
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>Create your account</h1>
-          <p className="text-sm mt-1" style={{ color: 'var(--color-muted)' }}>Join StockFlow today</p>
+          <h1 className="text-2xl font-bold text-slate-800">Create your account</h1>
+          <p className="text-sm mt-1 text-slate-500">Join StockFlow today</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {fields.map(({ label, name, type }) => (
             <div key={name}>
-              <label className="block text-sm font-medium mb-1" style={{ color: 'var(--color-text)' }}>{label}</label>
+              <label className="block text-sm font-medium mb-1 text-slate-700">{label}</label>
               <input type={type} name={name} required value={formData[name]} onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                style={{ border: '1px solid var(--color-border)', background: 'var(--color-bg)' }} />
+                className="w-full px-4 py-2.5 rounded-lg text-sm outline-none border border-slate-200 bg-slate-50" />
             </div>
           ))}
-
           <button type="submit"
-            className="w-full py-2.5 rounded-lg text-white font-semibold text-sm mt-2"
-            style={{ background: 'var(--color-primary)' }}>
+            className="w-full py-2.5 rounded-lg text-white font-semibold text-sm bg-teal-700 hover:bg-teal-800 transition">
             Create Account
           </button>
         </form>
 
-        <p className="text-center text-sm mt-6" style={{ color: 'var(--color-muted)' }}>
-          Already have an account? <a href="/login" style={{ color: 'var(--color-primary)' }} className="font-medium">Login</a>
+        <p className="text-center text-sm mt-6 text-slate-500">
+          Already have an account? <a href="/login" className="text-teal-700 font-medium">Login</a>
         </p>
       </div>
     </div>
