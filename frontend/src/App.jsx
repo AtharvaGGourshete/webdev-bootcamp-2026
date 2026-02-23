@@ -5,7 +5,6 @@ import AboutUs from "./pages/AboutUs";
 import LogIn from "./pages/LogIn";
 import AdminDashboard from "./pages/AdminDashboard";
 import StaffDashboard from "./pages/StaffDashboard";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
